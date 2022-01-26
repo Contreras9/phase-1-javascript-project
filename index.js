@@ -92,6 +92,7 @@ fetch(`https://api.allorigins.win/get?url=${encodeURIComponent('https://www.free
 
 }
 
+
 function downLoadAllGames() {
 
     fetch(`https://api.allorigins.win/get?url=${encodeURIComponent('https://www.freetogame.com/api/games')}`)
