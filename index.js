@@ -4,10 +4,6 @@ document.addEventListener('DOMContentLoaded', (e) => {
 })
 
 
-	// 	<a href="cart.html" class="button">Add to cart</a>
-	//  <a href="#" class="button muted">Read Details</a>
-
-
 
 function showAllGames(games) {
     const gameList = document.getElementById('gameList')
@@ -58,6 +54,7 @@ function showGame(game) {
     secondAnchor.className = "button muted"
     secondAnchor.innerText = "Read Details"
 }
+
 
 function downLoadAllGames() {
 
