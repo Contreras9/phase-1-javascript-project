@@ -39,14 +39,14 @@ function showGame(game) {
     const productTitleAnchor = document.createElement('a')
     productTitle.append(productTitleAnchor)
     productTitleAnchor.href = "#"
-    productTitleAnchor.innerText = "Alpha Protocol"
+    productTitleAnchor.innerText = game.title
     const small = document.createElement('small')
     innerProduct.append(small)
     small.className = "price"
     small.innerText = "$19.00"
     const innerP = document.createElement('p')
     innerProduct.append(innerP)
-    innerP.innerText = "Lorem ipsum dolor sit consectetur adipiscing elit do eiusmod tempor..."
+    innerP.innerText = game.short_description
     const firstAnchor = document.createElement('a')
     innerProduct.append(firstAnchor)
     firstAnchor.href = "cart.html"
