@@ -3,12 +3,6 @@ document.addEventListener('DOMContentLoaded', (e) => {
     console.log("DOM fully loaded and parsed")
 })
 
-
-	// 	<a href="cart.html" class="button">Add to cart</a>
-	//  <a href="#" class="button muted">Read Details</a>
-
-
-
 function showAllGames(games) {
     const gameList = document.getElementById('gameList')
     gameList.innerHTML = ""
@@ -54,9 +48,48 @@ function showGame(game) {
     firstAnchor.innerText = "Add to cart"
     const secondAnchor = document.createElement('a')
     innerProduct.append(secondAnchor)
-    secondAnchor.href = "#"
+    // secondAnchor.href = "#"
     secondAnchor.className = "button muted"
     secondAnchor.innerText = "Read Details"
+
+    secondAnchor.addEventListener('click', () => showDetailModalBox(game))
+}
+
+function showDetailModalBox(game) {
+// Get the modal
+    const modal = document.getElementById("myModal");
+
+// Get the <span> element that closes the modal
+    const span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+// When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+        modal.style.display = "none";
+        }
+    }
+
+// Modal Box opened, fill in content
+const detailModalImg = document.getElementById('detailModalImg')
+const detailModalTitle = document.getElementById('detailModalTitle')
+const detailModalDescription = document.getElementById('detailModalDescription')
+
+fetch(`https://api.allorigins.win/get?url=${encodeURIComponent('https://www.freetogame.com/api/game?id='+game.id)}`)
+    .then(response => response.json())
+    .then(obj => JSON.parse(obj.contents))
+    .then(data => {
+       detailModalImg.src =  data.thumbnail
+       detailModalTitle.innerText = data.title
+       detailModalDescription.innerText = data.description
+       // When the user clicks on the button, open the modal
+        modal.style.display = "block";
+    })
+
 }
 
 function downLoadAllGames() {
