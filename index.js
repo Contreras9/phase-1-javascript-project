@@ -3,8 +3,6 @@ document.addEventListener('DOMContentLoaded', (e) => {
     console.log("DOM fully loaded and parsed")
 })
 
-
-
 function showAllGames(games) {
     const gameList = document.getElementById('gameList')
     gameList.innerHTML = ""
@@ -35,14 +33,14 @@ function showGame(game) {
     const productTitleAnchor = document.createElement('a')
     productTitle.append(productTitleAnchor)
     productTitleAnchor.href = "#"
-    productTitleAnchor.innerText = "Alpha Protocol"
+    productTitleAnchor.innerText = game.title
     const small = document.createElement('small')
     innerProduct.append(small)
     small.className = "price"
     small.innerText = "$19.00"
     const innerP = document.createElement('p')
     innerProduct.append(innerP)
-    innerP.innerText = "Lorem ipsum dolor sit consectetur adipiscing elit do eiusmod tempor..."
+    innerP.innerText = game.short_description
     const firstAnchor = document.createElement('a')
     innerProduct.append(firstAnchor)
     firstAnchor.href = "cart.html"
@@ -50,9 +48,48 @@ function showGame(game) {
     firstAnchor.innerText = "Add to cart"
     const secondAnchor = document.createElement('a')
     innerProduct.append(secondAnchor)
-    secondAnchor.href = "#"
+    // secondAnchor.href = "#"
     secondAnchor.className = "button muted"
     secondAnchor.innerText = "Read Details"
+
+    secondAnchor.addEventListener('click', () => showDetailModalBox(game))
+}
+
+function showDetailModalBox(game) {
+// Get the modal
+    const modal = document.getElementById("myModal");
+
+// Get the <span> element that closes the modal
+    const span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+// When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+        modal.style.display = "none";
+        }
+    }
+
+// Modal Box opened, fill in content
+const detailModalImg = document.getElementById('detailModalImg')
+const detailModalTitle = document.getElementById('detailModalTitle')
+const detailModalDescription = document.getElementById('detailModalDescription')
+
+fetch(`https://api.allorigins.win/get?url=${encodeURIComponent('https://www.freetogame.com/api/game?id='+game.id)}`)
+    .then(response => response.json())
+    .then(obj => JSON.parse(obj.contents))
+    .then(data => {
+       detailModalImg.src =  data.thumbnail
+       detailModalTitle.innerText = data.title
+       detailModalDescription.innerText = data.description
+       // When the user clicks on the button, open the modal
+        modal.style.display = "block";
+    })
+
 }
 
 
