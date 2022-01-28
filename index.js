@@ -174,12 +174,6 @@ function downLoadAllGames() {
     })
 }
 
-function searchBar() {
-    const myInput = getElementById('myInput')
-    searchBar.addEventListener('keyup', e => e.target.value)
-}
-
-
 function showCartItem(item, counter) {
     
     const tr = document.createElement('tr')

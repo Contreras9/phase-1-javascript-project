@@ -257,7 +257,7 @@ table {
  */
 body {
   background-color: #e9e9e9;
-  color: #898e90;
+  color: black;
   font-family: "Roboto", "Open Sans", sans-serif;
   font-size: 14px;
   font-weight: 300;
@@ -2247,7 +2247,7 @@ form textarea {
 
 .home-slider {
   position: relative;
-  margin-top: -40px;
+  margin-top: 0px;
   margin-bottom: 30px;
   background: #2b2b2b;
 }
@@ -2755,4 +2755,12 @@ table.cart .fa-times {
 
 .inner-product{
   min-height: 400px;
+}
+
+#threeGames {
+  color: white;
+  font-family: "Roboto", "Open Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: normal;
 }
