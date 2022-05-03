@@ -93,6 +93,7 @@ function showGame(game) {
 
     secondAnchor.addEventListener('click', () => showDetailModalBox(game))
     firstAnchor.addEventListener('click', () => addToCart(game))
+
 }
 
 function showDetailModalBox(game) {
@@ -161,6 +162,7 @@ function renderCart() {
     cartTable.innerHTML = ""
     
     Object.keys(cart).forEach(key => showCartItem(cart[key][1], cart[key][0]))
+
 }
 
 

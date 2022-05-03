@@ -7,6 +7,7 @@
 /*=========================================== 
  * Importing CSS Libraries
  *===========================================*/
+
 article,
 aside,
 details,
@@ -21,16 +22,19 @@ summary {
   display: block;
 }
 
+
 audio,
 canvas,
 video {
   display: inline-block;
 }
 
+
 audio:not([controls]) {
   display: none;
   height: 0;
 }
+
 
 [hidden], template {
   display: none;
@@ -2720,6 +2724,7 @@ table.cart .fa-times {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 5; /* Sit on top */
+  z-index: 1; /* Sit on top */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
@@ -2751,6 +2756,7 @@ table.cart .fa-times {
   color: black;
   text-decoration: none;
   cursor: pointer;
+
 }
 
 .inner-product{
